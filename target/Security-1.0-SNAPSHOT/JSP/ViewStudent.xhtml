@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>VIEW STUDENT</title>
+        <!--external css file-->
+        <h:outputStylesheet name="newcss.css"/>
+          <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/bootstrap.css" />
+         <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/newcss.css" />
+
+        <script src="#{request.contextPath}/resources/js/jquery.js"></script>
+        <script src="#{request.contextPath}/resources/js/popper.js"></script>
+        <script src="#{request.contextPath}/resources/js/bootstrap.js"></script>
+
+    </h:head>
+    <h:body style=" background-color: #F0FFF0;">
+
+        <nav class="navbar  navbar-expand" style="background-color: green;">
+
+            <a class="navbar-brand" style="color: black; font-weight:normal; font-family: serif;  "  >EGERTON SECURITY DEPT</a>
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"  >
+                <ul class="navbar-nav mr-auto">
+
+
+                    <li class="nav-item dropdown" style="margin-left: 1300px" >
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            DashBoard
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+
+                            <a class="dropdown-item" href="CreateNewUSer.xhtml">Create User</a>
+                        <a class="dropdown-item" href="ViewUsers.xhtml">View Users</a>
+                            
+                           
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="ViewCases.xhtml">View Cases</a>
+                             <a class="dropdown-item" href="ChangePassword.xhtml">View Student</a>
+                           
+                        </div>
+                    </li>
+                    <li class="nav-item" style="float: left; margin-right: -50%">
+                        <a class="nav-link"  href="login.xhtml" style="color:  red; text-decoration: underline ">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br></br>
+        
+        <h:form>
+            
+            <center>
+            <h5>VIEW STUDENT</h5>
+            </center>
+            
+            <h:outputLabel value="Enter ID Number"/><br></br>
+            <h:inputText id="OBInputText" style="size: 100px; height: 50px"
+                         value="#{student.id}"/>
+              
+            <!--button to display complaints based on selections-->
+            <h:commandButton  class="btn btn-dark btn-light" style="margin-left: 50px"
+                              value="Search" />
+ 
+
+            <br/> <br/>
+            <!--table to display the complaints-->
+            <h:dataTable value="#{student.showStudents()}" var="students"
+                         rowClasses="addTableRow,evenTableRow"
+                         headerClass="tableHeader" 
+                         styleClass="table" class="table table-striped table-hover table-bordered tableUpdated">
+            
+
+                <h:column >
+                    <f:facet name="header">ID NUMBER</f:facet>
+                        #{students.reg}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header"> NAME</f:facet>
+                        #{students.name}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">PHONE NUMBER</f:facet>
+                        #{students.phone}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">STATUS</f:facet>
+                        #{students.status}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">HOSTEL</f:facet>
+                        #{students.hostel}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ROOM</f:facet>
+                        #{students.room}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">COURSE</f:facet>
+                        #{students.course}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">FACULTY</f:facet>
+                        #{students.faculty}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Resident</f:facet>
+                        #{students.resident}
+                </h:column>
+
+
+            </h:dataTable>
+    
+
+        </h:form>
+
+    </h:body>
+</html>
+

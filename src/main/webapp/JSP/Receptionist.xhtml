@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>WELCOME</title>
+         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/bootstrap.css" />
+        <script src="#{request.contextPath}/resources/js/jquery.js"></script>
+        <script src="#{request.contextPath}/resources/js/popper.js"></script>
+        <script src="#{request.contextPath}/resources/js/bootstrap.js"></script>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-expand-lg  " style="background-color: green; ">
+
+            <a class="navbar-brand" style="color: white; font-weight:bold; font-family: serif;  "  >EGERTON SECURITY DEPT</a>
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"  >
+                <ul class="navbar-nav mr-auto">
+
+
+                    <li class="nav-item dropdown" style="margin-left: 1300px;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            DashBoard
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                            <a class="dropdown-item" href="CreateNewComplaint.xhtml">Create Case</a>
+                             <a class="dropdown-item" href=" ViewComplaints.xhtml">View Case</a>
+                            <a class="dropdown-item" href="changePass.xhtml">Change Password</a>
+                          
+                         
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="login.xhtml" style="color:  red; text-decoration: underline ">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <center>
+            WELCOME
+        </center>
+        
+    </h:body>
+</html>
+

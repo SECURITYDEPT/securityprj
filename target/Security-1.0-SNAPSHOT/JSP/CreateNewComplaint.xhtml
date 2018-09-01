@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title style="font-weight: normal; font-family: serif">CREATE NEW CASE</title>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+
+
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/bootstrap.css" />
+
+        <script src="#{request.contextPath}/resources/js/jquery.js"></script>
+        <script src="#{request.contextPath}/resources/js/popper.js"></script>
+        <script src="#{request.contextPath}/resources/js/bootstrap.js"></script>
+
+
+    </h:head>
+
+
+    <h:body>
+        <nav class="navbar  navbar-expand" style="background-color: green;">
+
+            <a class="navbar-brand" style="color: black; font-weight:normal; font-family: serif;  "  >EGERTON SECURITY DEPT</a>
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"  >
+                <ul class="navbar-nav mr-auto">
+
+
+                    <li class="nav-item dropdown" style="margin-left: 1300px" >
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            DashBoard
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+
+                            <a class="dropdown-item" href="changePass.xhtml">Change Password</a>
+
+                            <a class="dropdown-item" href="ViewComplaints.xhtml">View Case</a>
+                           
+                        </div>
+                    </li>
+                    <li class="nav-item" style="float: left; margin-right: -50%">
+                        <a class="nav-link"  href="login.xhtml" style="color:  red; text-decoration: underline ">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="card" style="width: 100%; margin: auto; background-color: #F0FFF0; ">
+
+
+            <div class="card-body " style="margin: 0 auto">
+                <h5 class="card-title; font-italic; font-weight-bold" style="font-family: serif; ">COMPLAINT DETAILS</h5>
+
+
+                <h:form class="form-horizontal">
+                    <h6>Complainant Details</h6>
+                    <h:panelGrid columns="2">
+
+                        <h:outputLabel value="First Name" style="color: blue" /><br></br>
+                        <h:inputText id="Fname" size="80" style="height: 70px" required="true" requiredMessage="First Name Required"
+                                     value="#{complaint.complainantFName}"/>
+                        <br></br>
+                        <br></br>
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Second Name" style="color: blue" /><b></b>
+                        <h:inputText id="Sname" size="80" style="height: 70px" required="true" requiredMessage="Second Name Required"
+                                     value="#{complaint.complainantSName}"/>
+                        <br></br>
+                        <br></br>
+                    </h:panelGrid>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Registration Number" style="color: blue"/><br></br>
+                        <h:inputText id="regNo" size="80" style="height: 70px" required="true" requiredMessage="Complainant ID required"
+                                     value="#{complaint.compId}"/>
+                        <br></br>
+                        <br></br>
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Complainant's Phone" style="color: blue" /><b></b>
+                        <h:inputText id="phone" size="80" style="height: 70px" required="true" requiredMessage="Phone Number required"
+                                     value="#{complaint.phoneNum}"/>
+                        <br></br>
+                        <br></br>
+                    </h:panelGrid>
+
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Complainant's Email" style="color: blue" /><br></br>
+                        <h:inputText id="email" size="80" style="height: 70px" required="true" requiredMessage="Email required"
+                                     value="#{complaint.complainantEmail}"/>
+
+                    </h:panelGrid>
+                    <br></br>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Gender"/> <br></br>
+                        <h:selectOneRadio id="addressInput"
+                                          value="#{complaint.gender}">
+                            <f:selectItem itemValue="Male"
+                                          itemLabel="Male"/>
+                            <f:selectItem itemValue="Female"
+                                          itemLabel="Female"/>
+                        </h:selectOneRadio>
+                    </h:panelGrid>
+
+                    <br></br>
+
+
+
+                    <h6>Case Details</h6>
+                    <h:outputLabel style="color: blue">Select Category</h:outputLabel><br></br>
+                    <h:selectOneMenu value="#{complaint.category}" class="btn btn-primary dropdown-toggle btn-dark" id="dropdownMenuButton" >
+                        <f:selectItem class="dropdown-item" itemValue="Criminal"/>
+                        <f:selectItem class=" dropdown-item" itemValue="Fire"/>
+                        <f:selectItem class="dropdown-item" itemValue="Civil"/>
+
+                    </h:selectOneMenu>
+                    <br></br>
+                    <br></br>
+
+                    <h:outputLabel value="Case Details" style="color: blue"></h:outputLabel>
+                    <br></br>
+                    <h:inputTextarea id="detailstextainput" required="true" requiredMessage="Details required" style="width:650px; height:150px;" value="#{complaint.details}"  ></h:inputTextarea>
+                    <br></br>
+                    <h:commandButton value="Submit" class="btn btn-success"
+                                     action="#{complaint.createComplaint()}"/>
+
+
+
+
+
+                </h:form>
+            </div>
+        </div>
+        <footer>
+            <div class="card" style="background-color: green">
+                <div class="card-body; mx-auto " >
+
+                    ©EGERTON 2018
+
+                </div>
+            </div>
+        </footer>
+    </h:body>
+</html>
+

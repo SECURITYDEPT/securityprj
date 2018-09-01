@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <h:head>
+        <title>VIEW EXISTING COMPLAINTS</title>
+        <!--external css file-->
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/bootstrap.css" />
+        <script src="#{request.contextPath}/resources/js/jquery.js"></script>
+        <script src="#{request.contextPath}/resources/js/popper.js"></script>
+        <script src="#{request.contextPath}/resources/js/bootstrap.js"></script>
+
+
+
+
+    </h:head>
+    <h:body style="background-color: #F0FFF0">
+        <nav class="navbar navbar-expand-lg  " style="background-color: green; ">
+
+            <a class="navbar-brand" style="color: white; font-weight:bold; font-family: serif;  "  >EGERTON SECURITY DEPT</a>
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"  >
+                <ul class="navbar-nav mr-auto">
+
+
+                    <li class="nav-item dropdown" style="margin-left: 1300px;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            DashBoard
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                            <a class="dropdown-item" href="CreateNewUSer.xhtml">Create User</a>
+
+                            <a class="dropdown-item" href="ChangePassword.xhtml">Change Password</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="ViewUsers.xhtml">View Users</a>
+                            <a class="dropdown-item" href="ViewStudent.xhtml">View Student</a>
+                           
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="login.xhtml" style="color:  red; text-decoration: underline ">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+       
+        <center>
+            <h3 style=" font-italic">COMPLAINT DETAILS</h3>
+        </center>
+
+
+
+        <h:form style="width:100%; background-color: #F0FFF0; height: 100%">
+
+
+
+
+            
+            <h:inputText id="OBInputText"   style="margin-left: 1150px"
+
+                         value="#{compaintBean.choice}"/>
+
+            <!--button to display complaints based on selections-->
+            <h:commandButton  class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                              value="Dispaly Complaint" />
+
+
+
+            <br/> <br/>
+
+
+            <center>
+                <!--table to display the complaints-->
+                <h:dataTable   value="#{compaintBean. getCompList()}"  var="complaints"
+                               rowClasses="addTableRow,evenTableRow"
+                               headerClass="tableHeader"
+                               styleClass="table" class="table table-striped table-hover table-bordered tableUpdated">
+
+
+                    <h:column>
+                        <f:facet name="header">OB NUMBER</f:facet>
+                            #{complaints.OB}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">REGISTRATION NUMBER</f:facet>
+                            #{complaints.compId}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">COMPLAINANT FIRST  NAME</f:facet>
+                            #{complaints.complainantFName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">COMPLAINANT SURNAME</f:facet>
+                            #{complaints.complainantSName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">GENDER</f:facet>
+                            #{complaints.gender}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> PHONE NUMBER</f:facet>
+                            #{complaints.phoneNum}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">STATUS</f:facet>
+                            #{complaints.status}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">VIEW</f:facet>
+                        <h:commandLink id="viewButton" value="View"
+                                       action="#{compaintBean.viewDetails()}">
+                            <f:param name="details" value="#{complaints.details}"/>
+
+                        </h:commandLink>
+
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">EMAIL</f:facet>
+                            #{complaints.complainantEmail}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">CATEGORY</f:facet>
+                            #{complaints.category}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">DATE</f:facet>
+                            #{complaints.date}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Allocate</f:facet>
+                        <h:commandLink id="allocateButton" value="allocate" action="#{compaintBean.viewId()}" ><f:setPropertyActionListener target="#{compaintBean.id}" value="#{complaints.OB}"/> </h:commandLink>
+                    </h:column>
+                        <h:column>
+                         <f:facet name="header">Resolved</f:facet>
+                        <h:commandButton id="resolveButton" value="Resolve"
+                                         action="#{complaint.resolveCase(complaints.OB)}">
+                            
+
+                        </h:commandButton>
+                         </h:column>
+
+
+
+                    
+
+
+                </h:dataTable>
+            </center>
+
+
+
+         
+
+
+
+        </h:form>
+
+
+
+
+    </h:body>
+</html>
+
