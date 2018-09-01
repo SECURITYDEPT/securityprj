@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 webApps\CompaintBean.class
 webApps\ConnManager.class
 webApps\UserBean.class
@@ -7,3 +8,15 @@ webApps\UserValidation.class
 webApps\UserNameValidator.class
 Validation\UserExisting.class
 webApps\Complaint.class
+=======
+com/security/servlet/FileUploadServlet.class
+com/security/servlet/UploadDetail.class
+mdhash/mdjavahash.class
+com/login/controller/LogoutServlet.class
+com/login/dao/LoginDao.class
+com/login/bean/LoginBean.class
+com/login/util/DBConnection.class
+com/security/servlet/UploadedFilesServlet.class
+com/security/servlet/FileDownloadServlet.class
+com/login/controller/LoginServlet.class
+>>>>>>> d328ab6d6e107d630299506cb63b10ee1d75bf1b

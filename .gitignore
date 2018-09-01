@@ -18,3 +18,5 @@ private.xml
 *.rar
 .mtj.tmp/
 *.ctxt
+inputFiles.lst
+pom.properties
